@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Profile.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Profile.css';
 
 function Profile({ name, role, avatarUrl }) {
   return (
