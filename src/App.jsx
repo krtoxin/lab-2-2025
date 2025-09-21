@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Profile from "./components/Profile";
+
+const users = [
+  {
+    name: "Leanne Graham",
+    role: "Frontend Developer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Leanne"
+  },
+  {
+    name: "Ervin Howell",
+    role: "Backend Developer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Ervin"
+  },
+  {
+    name: "Clementine Bauch",
+    role: "UI/UX Designer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Clementine"
+  },
+  {
+    name: "Patricia Lebsack",
+    role: "Project Manager",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Patricia"
+  },
+  {
+    name: "Chelsey Dietrich",
+    role: "QA Engineer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Chelsey"
+  },
+  {
+    name: "Dennis Schulist",
+    role: "DevOps Engineer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Dennis"
+  },
+  {
+    name: "Kurtis Weissnat",
+    role: "Fullstack Developer",
+    avatarUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=Kurtis"
+  }
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="main-bg">
+      <h1 className="team-title">Team Profiles</h1>
+      <div className="profiles-grid">
+        {users.map((user) => (
+          <Profile
+            key={user.name}
+            name={user.name}
+            role={user.role}
+            avatarUrl={user.avatarUrl}
+          />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
